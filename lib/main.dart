@@ -1,40 +1,48 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:youtube/screens/Tabs.dart';
 import 'package:youtube/screens/forgot.dart';
 import 'package:youtube/screens/homepage.dart';
 import 'package:youtube/screens/library.dart';
 import 'package:youtube/screens/login.dart';
+
+import 'package:youtube/screens/playscreen.dart';
 import 'package:youtube/screens/shorts.dart';
 import 'package:youtube/screens/sign.dart';
 
 import 'package:youtube/screens/subscription.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  String? token = prefs.getString('token');
+
+  runApp(MyApp(token: token));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final String? token;
+  const MyApp({super.key, required this.token});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      initialRoute: '/',
+      debugShowCheckedModeBanner: false,
+      initialRoute: token == null ? '/Login_' : '/Tabs_',
       routes: {
-        '/': (context) => Login(),
-        '/Sign_': (context) => Sign(),
+        
         '/Login_': (context) => Login(),
+        '/Sign_': (context) => Sign(),
+        '/Tabs_': (context) => Tabs(),
         '/Forgot_': (context) => Forgot(),
         '/Homepage_': (context) => Homepage(),
         '/Shorts': (context) => Shorts(),
         '/Subscription_': (context) => Subscription(),
         '/Library_': (context) => Library(),
-        '/Tabs_': (context) => Tabs(),
+        '/Play_': (context) => Playscreen(),
       },
-
-      debugShowCheckedModeBanner: false,
     );
   }
 }

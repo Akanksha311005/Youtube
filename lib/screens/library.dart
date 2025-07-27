@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:youtube/color/appcolor.dart';
 
-class Library extends StatefulWidget {
+class Library extends StatelessWidget {
   const Library({super.key});
 
   @override
-  State<Library> createState() => _LibraryState();
-}
-
-class _LibraryState extends State<Library> {
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return  Scaffold(
       backgroundColor: Appcolor.secondarycolor,
       appBar: AppBar(
         actions: [

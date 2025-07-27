@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:youtube/screens/login.dart';
+import 'package:youtube/routes/app_routes.dart';
 
-class Forgot extends StatefulWidget {
-  const Forgot({super.key});
+// class Forgot extends StatefulWidget {
+//   const Forgot({super.key});
 
-  @override
-  State<Forgot> createState() => _ForgotState();
-}
+//   @override
+//   State<Forgot> createState() => _ForgotState();
+// }
+class Forgot extends StatelessWidget {
+ Forgot({super.key});
 
-class _ForgotState extends State<Forgot> {
+
   final _formkey = GlobalKey<FormState>();
   // bool magic = true;
   final TextEditingController emailCtrl = TextEditingController();
@@ -17,7 +19,7 @@ class _ForgotState extends State<Forgot> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: const Color.fromARGB(255, 23, 23, 23),
       body: Form(
         key: _formkey,
         child: Padding(
@@ -78,11 +80,11 @@ class _ForgotState extends State<Forgot> {
 
                 child: ElevatedButton(
                   onPressed: () {},
+                  style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
                   child: Text(
                     "Send Reset link",
                     style: TextStyle(color: Colors.white),
                   ),
-                  style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
                 ),
               ),
               SizedBox(
@@ -91,14 +93,14 @@ class _ForgotState extends State<Forgot> {
 
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.push(context,MaterialPageRoute(builder: (context)=>Login()));
+                     Get.toNamed(AppRoutes.loginscreen);
                   },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.black,
+                  ),
                   child: Text(
                     "Back to Login",
                     style: TextStyle(color: Colors.red),
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.black,
                   ),
                 ),
               ),

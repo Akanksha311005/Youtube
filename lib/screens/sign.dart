@@ -1,24 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:youtube/screens/homepage.dart';
-import 'package:youtube/screens/login.dart';
+import 'package:get/get.dart';
+import 'package:youtube/routes/app_routes.dart';
 
-class Sign extends StatefulWidget {
-  const Sign({super.key});
 
-  @override
-  State<Sign> createState() => _SignState();
-}
 
-class _SignState extends State<Sign> {
+// class Sign extends StatefulWidget {
+//   const Sign({super.key});
+
+//   @override
+//   State<Sign> createState() => _SignState();
+// }
+class Sign extends StatelessWidget {
+  Sign({super.key});
+
+  
   final _formkey = GlobalKey<FormState>();
   final TextEditingController emailCtrl = TextEditingController();
   final TextEditingController passCtrl = TextEditingController();
   final TextEditingController userCtrl = TextEditingController();
+  
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: const Color.fromARGB(255, 23, 23, 23),
       body: Form(
         key: _formkey,
         child: Padding(
@@ -110,12 +115,12 @@ class _SignState extends State<Sign> {
                 ),
                 validator: (value) {
                   if (value == null || value.trim().isEmpty) {
-                    return "email can not be null";
+                    return "password can not be null";
                   }
                   if (!RegExp(
                     r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
                   ).hasMatch(value)) {
-                    return "Enter valid Email";
+                    return "Enter valid password";
                   }
                   return null;
                 },
@@ -127,30 +132,25 @@ class _SignState extends State<Sign> {
 
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Homepage()),
-                    );
+                    Get.toNamed(AppRoutes.homescreen);
                   },
-                  child: Text(
-                    "Create Account",
-                    style: TextStyle(color: Colors.white),
-                  ),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.red,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
+                  child: Text(
+                    "Create Account",
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
               ),
               SizedBox(height: 10),
               TextButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Login()),
-                  );
+                  
+                  Get.toNamed(AppRoutes.loginscreen);
                 },
                 child: Text(
                   "Back to Login",

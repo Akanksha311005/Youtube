@@ -1,17 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:youtube/color/appcolor.dart';
 import 'package:youtube/custom_widget/custom_container.dart';
+import 'package:youtube/custom_widget/custom_profile.dart';
+import 'package:youtube/custom_widget/shorts_container.dart';
+import 'package:youtube/routes/app_routes.dart';
 
-class Homepage extends StatefulWidget {
+// class Homepage extends StatefulWidget {
+//   const Homepage({super.key});
+
+//   @override
+//   State<Homepage> createState() => _HomepageState();
+// }
+class Homepage extends StatelessWidget {
   const Homepage({super.key});
 
   @override
-  State<Homepage> createState() => _HomepageState();
-}
-
-class _HomepageState extends State<Homepage> {
-  @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Appcolor.secondarycolor,
       appBar: AppBar(
@@ -31,19 +38,19 @@ class _HomepageState extends State<Homepage> {
         actions: [
           Icon(
             Icons.cast,
-            size: 30,
+            size: screenWidth*0.07,
             color: const Color.fromARGB(255, 244, 243, 243),
           ),
           SizedBox(width: 10),
           Icon(
             Icons.notifications,
-            size: 30,
+            size: screenWidth*0.07,
             color: const Color.fromARGB(255, 249, 246, 246),
           ),
           SizedBox(width: 10),
           Icon(
             Icons.search,
-            size: 30,
+            size: screenWidth*0.07,
             color: const Color.fromARGB(255, 254, 253, 253),
           ),
           SizedBox(width: 10),
@@ -51,57 +58,50 @@ class _HomepageState extends State<Homepage> {
       ),
       body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 15),
-            Container(
-              decoration: BoxDecoration(color: Colors.grey),
-              height: 290,
-              width: double.infinity,
-              child: Image.network(
-                "https://www.usatoday.com/gcdn/-mm-/b4c5278824be1601ab745285b0a3d5a0a57b635b/c=12-0-2994-1686/local/-/media/USATODAY/USATODAY/2014/02/06//1391726090000-XXX-DISNEY-SOFIA-THE-FIRST.JPG?width=1600&height=800&fit=crop&format=pjpg&auto=webp",
-                fit: BoxFit.fill,
+            GestureDetector(
+              onTap: () {
+                Get.toNamed(AppRoutes.play);
+              },
+
+              child: CustomContainer(
+                img: "https://i.ytimg.com/vi/GVQGWgeVc4k/maxresdefault.jpg",
               ),
             ),
             SizedBox(height: 20),
             Row(
               children: [
                 SizedBox(height: 20),
-                Container(
-                  height: 60,
-                  width: 60,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    image: DecorationImage(
-                      image: NetworkImage(
-                        "https://static.wikia.nocookie.net/disney/images/b/b2/Profile_-_Princess_Sofia.png/revision/latest/thumbnail/width/360/height/360?cb=20231004010206",
-                      ),
-                    ),
-                  ),
+                CustomProfile(
+                  img:
+                      "https://yt3.googleusercontent.com/CvgBA1ypUZNxOjiCX0l1V2FbAm7oSDPZE4YkMvkpT_4iLXQ3IXWVtBgWnznHxgtcUoj50TXqZA=s900-c-k-c0x00ffffff-no-rj",
                 ),
-                SizedBox(width: 20),
+                SizedBox(width: 10),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Sofia the first",
+                      "Crash Landing On You",
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 20,
+                        fontSize: screenWidth*0.05,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
                     Text(
-                      "Disney channel. 4m views.4 years ago",
+                      "Netflix . 34M views . 2 days ago",
                       style: TextStyle(color: Colors.grey),
                     ),
                   ],
                 ),
               ],
             ),
+            SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Container(
+                SizedBox(
                   height: 50,
                   child: Image.network(
                     "https://www.droid-life.com/wp-content/uploads/2021/03/YouTube-Shorts-3-1200x1200-cropped.jpg",
@@ -123,82 +123,40 @@ class _HomepageState extends State<Homepage> {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  Container(
-                    height: 300,
-                    width: 185,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: NetworkImage(
-                          "https://m.media-amazon.com/images/I/61yo34xjLHL._UF1000,1000_QL80_.jpg",
-                        ),
-                        fit: BoxFit.fill,
-                      ),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
+                  ShortsContainer(
+                    img:
+                        "https://m.media-amazon.com/images/I/61yo34xjLHL._UF1000,1000_QL80_.jpg",
                   ),
                   SizedBox(width: 10),
-                  Container(
-                    height: 300,
-                    width: 185,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: NetworkImage(
-                          "https://lumiere-a.akamaihd.net/v1/images/p_snowwhiteandthesevendwarfs_19871_806c8934.jpeg",
-                        ),
-                        fit: BoxFit.fill,
-                      ),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
+                  ShortsContainer(
+                    img:
+                        "https://lumiere-a.akamaihd.net/v1/images/p_snowwhiteandthesevendwarfs_19871_806c8934.jpeg",
                   ),
                   SizedBox(width: 10),
-                  Container(
-                    height: 300,
-                    width: 185,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: NetworkImage(
-                          "https://i.pinimg.com/736x/a1/62/63/a16263531a320fd4eb5b8eef6a46c102.jpg",
-                        ),
-                        fit: BoxFit.fill,
-                      ),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
+                  ShortsContainer(
+                    img:
+                        "https://i.pinimg.com/736x/a1/62/63/a16263531a320fd4eb5b8eef6a46c102.jpg",
                   ),
                   SizedBox(width: 10),
-                  Container(
-                    height: 300,
-                    width: 185,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: NetworkImage(
-                          "https://i.pinimg.com/736x/00/56/23/005623478dfa8a639a732992521edeaf.jpg",
-                        ),
-                        fit: BoxFit.fill,
-                      ),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
+                  ShortsContainer(
+                    img:
+                        "https://i.pinimg.com/736x/00/56/23/005623478dfa8a639a732992521edeaf.jpg",
                   ),
                 ],
               ),
             ),
-            SizedBox(height: 15),
-            CustomContainer(img: "https://64.media.tumblr.com/cdece8050f87cea787abc3008ec9ff5b/04293b9d5dd1dd70-70/s1280x1920/fcff268c0827de1e1a692a3b6590140c7ed273b1.png"),
+            SizedBox(height: 20),
+            CustomContainer(
+              img:
+                  "https://lumiere-a.akamaihd.net/v1/images/image_19221b22.jpeg",
+            ),
             SizedBox(height: 20),
             Row(
               children: [
                 SizedBox(width: 20),
-                Container(
-                  height: 50,
-                  width: 50,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    image: DecorationImage(
-                      image: NetworkImage(
-                        "https://64.media.tumblr.com/cdece8050f87cea787abc3008ec9ff5b/04293b9d5dd1dd70-70/s1280x1920/fcff268c0827de1e1a692a3b6590140c7ed273b1.png",
-                      ),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
+                CustomProfile(
+                  img:
+                      "https://64.media.tumblr.com/cdece8050f87cea787abc3008ec9ff5b/04293b9d5dd1dd70-70/s1280x1920/fcff268c0827de1e1a692a3b6590140c7ed273b1.png",
                 ),
                 SizedBox(width: 20),
                 Column(
@@ -221,42 +179,28 @@ class _HomepageState extends State<Homepage> {
               ],
             ),
             SizedBox(height: 15),
-            // Container(
-            //   decoration: BoxDecoration(color: Colors.grey),
-            //   height: 250,
-            //   width: double.infinity,
-            //   child: Image.network(
-            //     "https://im.idiva.com/content/2020/Aug/gif-3-5_5f34fb8634ecf.gif?w=900&h=507&cc=1",
-            //     fit: BoxFit.fill,
-            //   ),
-            // ),
-            CustomContainer(img: "https://im.idiva.com/content/2020/Aug/gif-3-5_5f34fb8634ecf.gif?w=900&h=507&cc=1"),
+
+            CustomContainer(
+              img:
+                  "https://64.media.tumblr.com/12c8c1f088f71ff2acacaf598a3f50c0/ab610409ec23ab32-e6/s500x750/abdf68d6b8c77f041474ea3dfdac41550ccc0b96.gifv",
+            ),
             SizedBox(height: 20),
             Row(
               children: [
                 SizedBox(width: 20),
-                Container(
-                  height: 50,
-                  width: 50,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    image: DecorationImage(
-                      image: NetworkImage(
-                        "https://static1.dmcdn.net/images/dailymotion-logo-ogtag-new.png.va3e30462476a82772",
-                      ),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
+                CustomProfile(
+                  img:
+                      "https://static1.dmcdn.net/images/dailymotion-logo-ogtag-new.png.va3e30462476a82772",
                 ),
                 SizedBox(width: 20),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Crash Landing On You | Ep 7 |",
+                      "Vincenzo | Ep 7 |",
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 20,
+                        fontSize: 17,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
@@ -269,34 +213,28 @@ class _HomepageState extends State<Homepage> {
               ],
             ),
             SizedBox(height: 15),
-            // 
-            CustomContainer(img: "https://64.media.tumblr.com/e2b6bd4703a3a73e7a1f664c06eef265/c2783baaa72f688b-68/s540x810/a1298c903eab8ed7b046d2e0f8bd6ee3b2abddda.gif"),
+            //
+            CustomContainer(
+              img:
+                  "https://img-cdn.thepublive.com/filters:format(webp)/elle-india/media/post_attachments/buzzfeed-static/static/2021-02/2/5/asset/43d236a0b24a/anigif_sub-buzz-8752-1612245535-20.gif",
+            ),
             SizedBox(height: 20),
             Row(
               children: [
                 SizedBox(width: 20),
-                Container(
-                  height: 50,
-                  width: 50,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    image: DecorationImage(
-                      image: NetworkImage(
-                        "https://static1.dmcdn.net/images/dailymotion-logo-ogtag-new.png.va3e30462476a82772",
-                      ),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
+                CustomProfile(
+                  img:
+                      "https://static1.dmcdn.net/images/dailymotion-logo-ogtag-new.png.va3e30462476a82772",
                 ),
                 SizedBox(width: 20),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "My Demon | Episode 4 |",
+                      "Legend of the blue sea | Ep 4 |",
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 20,
+                        fontSize: 17,
                         fontWeight: FontWeight.w400,
                       ),
                     ),

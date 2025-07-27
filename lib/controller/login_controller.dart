@@ -1,17 +1,14 @@
-// import 'package:flutter/material.dart';
-// import 'package:get/state_manager.dart';
+import 'package:get/get.dart';
 
-// class LoginController extends StatefulWidget {
-//   const LoginController({super.key});
-
-//   @override
-//   State<LoginController> createState() => ();
-// }
-
-// class _LoginControllerState extends GetxController {
+class LoginController extends GetxController {
+  RxBool magic = true.obs;
+  void con() {
+    magic != magic;
+    if (magic.value == true) {
+      magic.value = false;
+    } else {
+      magic.value = true;
+    }
+  }
   
-//   @override
-//   Widget build(BuildContext context) {
-//     return const Placeholder();
-//   }
-// }
+}

@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-// import 'package:get/get_state_manager/get_state_manager.dart';
+
 import 'package:youtube/color/appcolor.dart';
 import 'package:youtube/controller/shorts_controller.dart';
+import 'package:youtube/custom_widget/custom_profile.dart';
 
-class Shorts extends StatefulWidget {
+class Shorts extends StatelessWidget {
   Shorts({super.key});
 
-  @override
-  State<Shorts> createState() => _ShortsState();
-}
-
-class _ShortsState extends State<Shorts> {
   final ShortsController thiscontroller = Get.put(ShortsController());
   String value = "Subscribe";
   //  String = value;
@@ -50,9 +45,9 @@ class _ShortsState extends State<Shorts> {
                   color: Colors.blueGrey,
                   image: DecorationImage(
                     image: NetworkImage(
-                      "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExaGVvMXN1N3ppMnJvcmllbHN1aDV6c2NvdzcybWthbjlhbTN1ZXhvZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/D0h583flkaxvVYc6Bh/giphy.gif",
+                      "https://thedailyrendezvous.wordpress.com/wp-content/uploads/2021/08/tumblr_7d867d6e756cdaecf465ff0ec8f71451_e7895c69_500.gif?w=500",
                     ),
-                    fit: BoxFit.fill,
+                    fit: BoxFit.cover,
                   ),
                 ),
                 child: Padding(
@@ -62,18 +57,9 @@ class _ShortsState extends State<Shorts> {
                     children: [
                       Row(
                         children: [
-                          Container(
-                            height: 50,
-                            width: 50,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              image: DecorationImage(
-                                image: NetworkImage(
-                                  "https://w7.pngwing.com/pngs/781/97/png-transparent-disney-channel-television-channel-the-walt-disney-company-disney-xd-tv-news-television-text-logo.png",
-                                ),
-                                fit: BoxFit.cover,
-                              ),
-                            ),
+                          CustomProfile(
+                            img:
+                                "https://yt3.googleusercontent.com/ytc/AIdro_kuMeIFzmBh7miBgkx93Dam8_wlj7xK8MefHeF1xLYOKhQw=s900-c-k-c0x00ffffff-no-rj",
                           ),
                           SizedBox(width: 15, height: 50),
                           Row(
@@ -83,7 +69,7 @@ class _ShortsState extends State<Shorts> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "Gif_offical",
+                                    "kdrama_shorts",
                                     style: TextStyle(
                                       color: const Color.fromARGB(
                                         255,
@@ -96,33 +82,41 @@ class _ShortsState extends State<Shorts> {
                                     ),
                                   ),
                                   Text(
-                                    "Disney channel . 4k views ",
-                                    style: TextStyle(color: Colors.grey),
+                                    "Viki . 4k views ",
+                                    style: TextStyle(color: const Color.fromARGB(255, 7, 7, 7)),
                                   ),
                                 ],
                               ),
                               // SizedBox(width: 15
 
                               // ),
-                              ElevatedButton(
-                                style: ButtonStyle(
-                                  backgroundColor: WidgetStatePropertyAll(
-                                    Colors.white,
+                              Padding(
+                                padding: const EdgeInsets.only(left: 20),
+                                child: ElevatedButton(
+                                  style: ButtonStyle(
+                                    backgroundColor: WidgetStatePropertyAll(
+                                      Colors.white,
+                                    ),
                                   ),
-                                ),
-                                onPressed: () {
-                                  Get.snackbar(
-                                    "Subscribed",
-                                    "${thiscontroller.channelname}",
-                                    backgroundColor: Colors.blue,
-                                    duration: Duration(seconds: 10),
-                                  );
-                                  thiscontroller.changeValue();
-                                },
-                                child: Text(
-                                  thiscontroller.mytext.value,
-                                  style: TextStyle(
-                                    color: Appcolor.secondarycolor,
+                                  onPressed: () {
+                                    Get.snackbar(
+                                      "Subscribed✨",
+                                      "${thiscontroller.channelname}",
+                                      backgroundColor: const Color.fromARGB(
+                                        114,
+                                        239,
+                                        237,
+                                        237,
+                                      ),
+                                      duration: Duration(seconds: 3),
+                                    );
+                                    thiscontroller.changeValue();
+                                  },
+                                  child: Text(
+                                    thiscontroller.mytext.value,
+                                    style: TextStyle(
+                                      color: Appcolor.secondarycolor,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -145,7 +139,7 @@ class _ShortsState extends State<Shorts> {
                       color: Colors.blueGrey,
                       image: DecorationImage(
                         image: NetworkImage(
-                          "https://64.media.tumblr.com/edc088ca1ed0fa6d964fc975e4f44bec/112dae52a7f12a04-c0/s540x810/ee64388ab011a9701dcf9dce2c9302aae1140c1c.gif",
+                          "https://media4.giphy.com/media/v1.Y2lkPTZjMDliOTUyemd5eTEzeHdhdXFicmxnM3p0em0wdmtramF3OGE2aWY1MThwN2FtbSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/7qlQAzqdYYSNa/source.gif",
                         ),
                         fit: BoxFit.cover,
                       ),
@@ -157,18 +151,9 @@ class _ShortsState extends State<Shorts> {
                         children: [
                           Row(
                             children: [
-                              Container(
-                                height: 50,
-                                width: 50,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  image: DecorationImage(
-                                    image: NetworkImage(
-                                      "https://i.pinimg.com/564x/bb/9b/ba/bb9bbaa6d5aa5280722a0f8682f1fd7a.jpg",
-                                    ),
-                                    fit: BoxFit.fill,
-                                  ),
-                                ),
+                              CustomProfile(
+                                img:
+                                    "https://i.pinimg.com/564x/bb/9b/ba/bb9bbaa6d5aa5280722a0f8682f1fd7a.jpg",
                               ),
                               SizedBox(width: 15, height: 50),
                               Column(
@@ -177,7 +162,12 @@ class _ShortsState extends State<Shorts> {
                                   Text(
                                     "Rapunzal Shorts",
                                     style: TextStyle(
-                                      color: Appcolor.secondarycolor,
+                                      color: const Color.fromARGB(
+                                        255,
+                                        250,
+                                        247,
+                                        247,
+                                      ),
                                       fontSize: 20,
                                       fontWeight: FontWeight.w800,
                                     ),
@@ -196,6 +186,17 @@ class _ShortsState extends State<Shorts> {
                                   ),
                                 ),
                                 onPressed: () {
+                                  Get.snackbar(
+                                    "Subscribed✨",
+                                    "Disney Channel",
+                                    backgroundColor: const Color.fromARGB(
+                                      255,
+                                      165,
+                                      165,
+                                      165,
+                                    ),
+                                    duration: Duration(seconds: 3),
+                                  );
                                   thiscontroller.changeValue();
                                 },
                                 child: Text(
