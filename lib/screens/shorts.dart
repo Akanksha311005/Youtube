@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:youtube/color/appcolor.dart';
 import 'package:youtube/controller/shorts_controller.dart';
 import 'package:youtube/custom_widget/custom_profile.dart';
+import 'package:youtube/custom_widget/customtext.dart';
 
 class Shorts extends StatelessWidget {
   Shorts({super.key});
@@ -68,22 +69,9 @@ class Shorts extends StatelessWidget {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    "kdrama_shorts",
-                                    style: TextStyle(
-                                      color: const Color.fromARGB(
-                                        255,
-                                        247,
-                                        246,
-                                        246,
-                                      ),
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w800,
-                                    ),
-                                  ),
-                                  Text(
-                                    "Viki . 4k views ",
-                                    style: TextStyle(color: const Color.fromARGB(255, 7, 7, 7)),
+                                  CustomText(
+                                    title: "kdrama_shorts",
+                                    subtitle: "Viki . 4k views ",
                                   ),
                                 ],
                               ),
@@ -159,23 +147,9 @@ class Shorts extends StatelessWidget {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    "Rapunzal Shorts",
-                                    style: TextStyle(
-                                      color: const Color.fromARGB(
-                                        255,
-                                        250,
-                                        247,
-                                        247,
-                                      ),
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w800,
-                                    ),
-                                  ),
-                                  SizedBox(width: 10),
-                                  Text(
-                                    "Disney channel . 4k views ",
-                                    style: TextStyle(color: Colors.grey),
+                                  CustomText(
+                                    title: "Rapunzal Shorts",
+                                    subtitle: "Disney channel . 4k views ",
                                   ),
                                 ],
                               ),

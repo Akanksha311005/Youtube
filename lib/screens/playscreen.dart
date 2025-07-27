@@ -5,6 +5,7 @@ import 'package:youtube/controller/like_controller.dart';
 import 'package:youtube/controller/shorts_controller.dart';
 import 'package:youtube/custom_widget/custom_container.dart';
 import 'package:youtube/custom_widget/custom_profile.dart';
+import 'package:youtube/custom_widget/customtext.dart';
 
 class Playscreen extends StatelessWidget {
   Playscreen({super.key});
@@ -23,25 +24,20 @@ class Playscreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CustomContainer(
+                color: const Color.fromARGB(95, 186, 185, 185),
                 img:
                     "https://preview.redd.it/crash-landing-on-you-twenty-five-twenty-one-chicago-v0-tmrr2yauq9sa1.gif?width=450&auto=webp&s=f6654ece3edf7a81a89c253feba6f73a2e330815",
+                badgeText: '2.09',
               ),
               SizedBox(height: 10, width: 20),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    "Crash Landing On You | Official Trailer | Netflix",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w400,
-                    ),
+                  CustomText(
+                    title: "Crash Landing On You | Official Trailer | Netflix",
+                    subtitle: "13 Lakh views 5yr ago",
                   ),
-                  Text(
-                    "13 Lakh views 5yr ago ",
-                    style: TextStyle(color: Colors.grey),
-                  ),
+
                   SizedBox(height: 10),
                   Row(
                     children: [
@@ -313,8 +309,10 @@ class Playscreen extends StatelessWidget {
               SizedBox(height: 20),
 
               CustomContainer(
+                color: const Color.fromARGB(95, 186, 185, 185),
                 img:
                     "https://1.vikiplatform.com/c/41085c/6c00c21dd0.jpg?x=b&s=480x270&e=t&q=g",
+                badgeText: '34:50',
               ),
               SizedBox(height: 20),
               Row(
@@ -328,17 +326,9 @@ class Playscreen extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        "BITCH X RICH | EP 4 | ",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 17,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                      Text(
-                        "Viki. 4m views.2 years ago",
-                        style: TextStyle(color: Colors.grey),
+                      CustomText(
+                        title: "BITCH X RICH | EP 4 | ",
+                        subtitle: "Viki. 4m views.2 years ago",
                       ),
                     ],
                   ),
@@ -346,8 +336,10 @@ class Playscreen extends StatelessWidget {
               ),
               SizedBox(height: 20),
               CustomContainer(
+                color: const Color.fromARGB(95, 186, 185, 185),
                 img:
                     "https://occ-0-8407-90.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABeizdHXVC_vwnnDSO7vimaI_URC1-d70VShgT8-1-ylEFN8IBtKhsj1qw48HbuJ_V-PPgGKVzRzDTD_ffGc-hXDfURLXQ6CmnsTfueqUTy5wNpxfplKGvNVsEfnH4OD2gKsKGA.webp?r=3d2",
+                badgeText: '1:30:07',
               ),
               SizedBox(height: 20),
               Row(
@@ -361,17 +353,9 @@ class Playscreen extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        "The Glory | Official Trailer | ",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 17,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                      Text(
-                        "Viki. 4m views.2 years ago",
-                        style: TextStyle(color: Colors.grey),
+                      CustomText(
+                        title: "The Glory | Official Trailer | ",
+                        subtitle: "Viki. 4m views.2 years ago",
                       ),
                     ],
                   ),

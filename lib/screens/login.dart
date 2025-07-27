@@ -16,17 +16,17 @@ import 'package:youtube/routes/app_routes.dart';
 // class _LoginState extends State<Login> {
 class Login extends StatelessWidget {
   Login({super.key});
-var magic = true;
+  var magic = true;
   final _formkey = GlobalKey<FormState>();
   // bool magic = true;
   final LoginController thiscontroller = Get.put(LoginController());
   final TextEditingController emailCtrl = TextEditingController();
   final TextEditingController passwordCtrl = TextEditingController();
-    final LoginCon loginCon = Get.put(LoginCon());
+  final LoginCon loginCon = Get.put(LoginCon());
 
   void _login() {
     if (_formkey.currentState!.validate()) {
-       loginCon.loginUser();
+      loginCon.loginUser();
       // Get.toNamed(AppRoutes.Tabs);
     }
   }
@@ -96,15 +96,18 @@ var magic = true;
                     TextFormField(
                       style: TextStyle(color: Colors.grey, fontSize: 18),
                       controller: loginCon.passwordCtrl,
-
                       decoration: InputDecoration(
                         suffixIcon: IconButton(
                           onPressed: () {
                             thiscontroller.con();
                           },
                           icon: Icon(
-                           thiscontroller.magic.value ? Icons.visibility_off : Icons.remove_red_eye,
-                            color: thiscontroller.magic.value ? Colors.blue : Appcolor.primarycolor,
+                            thiscontroller.magic.value
+                                ? Icons.visibility_off
+                                : Icons.remove_red_eye,
+                            color: thiscontroller.magic.value
+                                ? Colors.blue
+                                : Appcolor.primarycolor,
                           ),
                         ),
                         fillColor: Colors.white,

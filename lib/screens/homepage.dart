@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:youtube/color/appcolor.dart';
 import 'package:youtube/custom_widget/custom_container.dart';
+import 'package:youtube/custom_widget/custom_icon.dart';
 import 'package:youtube/custom_widget/custom_profile.dart';
+import 'package:youtube/custom_widget/customtext.dart';
 import 'package:youtube/custom_widget/shorts_container.dart';
 import 'package:youtube/routes/app_routes.dart';
 
@@ -19,6 +22,13 @@ class Homepage extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
+    Future<void> logout() async {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.clear();
+      prefs.remove('token');
+      Get.offNamed(AppRoutes.loginscreen); // Redirect to login screen
+    }
+
     return Scaffold(
       backgroundColor: Appcolor.secondarycolor,
       appBar: AppBar(
@@ -36,24 +46,28 @@ class Homepage extends StatelessWidget {
         ),
         backgroundColor: const Color.fromARGB(255, 6, 6, 6),
         actions: [
-          Icon(
-            Icons.cast,
-            size: screenWidth*0.07,
-            color: const Color.fromARGB(255, 244, 243, 243),
-          ),
+          CustomIcon(icon: Icons.cast),
           SizedBox(width: 10),
-          Icon(
-            Icons.notifications,
-            size: screenWidth*0.07,
-            color: const Color.fromARGB(255, 249, 246, 246),
-          ),
+          CustomIcon(icon: Icons.notifications),
           SizedBox(width: 10),
-          Icon(
-            Icons.search,
-            size: screenWidth*0.07,
-            color: const Color.fromARGB(255, 254, 253, 253),
-          ),
+          CustomIcon(icon: Icons.search),
           SizedBox(width: 10),
+          IconButton(
+            onPressed: () {
+              Get.defaultDialog(
+                title: "Logout",
+                middleText: "Are you sure you want to logout?",
+                textConfirm: "Yes",
+                textCancel: "No",
+                confirmTextColor: Colors.white,
+                onConfirm: () {
+                  logout();
+                },
+              );
+            },
+            icon: CustomIcon(icon: Icons.more_vert),
+            
+          ),
         ],
       ),
       body: SingleChildScrollView(
@@ -66,13 +80,15 @@ class Homepage extends StatelessWidget {
               },
 
               child: CustomContainer(
+                color: const Color.fromARGB(95, 186, 185, 185),
                 img: "https://i.ytimg.com/vi/GVQGWgeVc4k/maxresdefault.jpg",
+                badgeText: '2:09',
               ),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 10),
             Row(
               children: [
-                SizedBox(height: 20),
+                SizedBox(height: 10),
                 CustomProfile(
                   img:
                       "https://yt3.googleusercontent.com/CvgBA1ypUZNxOjiCX0l1V2FbAm7oSDPZE4YkMvkpT_4iLXQ3IXWVtBgWnznHxgtcUoj50TXqZA=s900-c-k-c0x00ffffff-no-rj",
@@ -81,17 +97,9 @@ class Homepage extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      "Crash Landing On You",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: screenWidth*0.05,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                    Text(
-                      "Netflix . 34M views . 2 days ago",
-                      style: TextStyle(color: Colors.grey),
+                    CustomText(
+                      title: "Crash Landing On You",
+                      subtitle: "Netflix",
                     ),
                   ],
                 ),
@@ -115,8 +123,8 @@ class Homepage extends StatelessWidget {
                     fontWeight: FontWeight.w900,
                   ),
                 ),
-                Padding(padding: const EdgeInsets.only(left: 250)),
-                Icon(Icons.more_vert, color: Colors.white),
+                Padding(padding: const EdgeInsets.only(left: 265)),
+                CustomIcon(icon: Icons.more_vert),
               ],
             ),
             SingleChildScrollView(
@@ -147,100 +155,81 @@ class Homepage extends StatelessWidget {
             ),
             SizedBox(height: 20),
             CustomContainer(
+              color: const Color.fromARGB(95, 186, 185, 185),
               img:
                   "https://lumiere-a.akamaihd.net/v1/images/image_19221b22.jpeg",
+              badgeText: '1:50:09',
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 10),
             Row(
               children: [
-                SizedBox(width: 20),
+                SizedBox(height: 10),
                 CustomProfile(
                   img:
                       "https://64.media.tumblr.com/cdece8050f87cea787abc3008ec9ff5b/04293b9d5dd1dd70-70/s1280x1920/fcff268c0827de1e1a692a3b6590140c7ed273b1.png",
                 ),
-                SizedBox(width: 20),
+                SizedBox(width: 10),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      "Beauty and the beast",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                    Text(
-                      "Disney channel . 7m views . 5 years ago",
-                      style: TextStyle(color: Colors.grey),
+                    CustomText(
+                      title: "Beauty and the beast",
+                      subtitle: "Disney channel . 7m views . 5 years ago",
                     ),
                   ],
                 ),
               ],
             ),
-            SizedBox(height: 15),
-
+            SizedBox(height: 10),
             CustomContainer(
+              color: const Color.fromARGB(95, 186, 185, 185),
               img:
                   "https://64.media.tumblr.com/12c8c1f088f71ff2acacaf598a3f50c0/ab610409ec23ab32-e6/s500x750/abdf68d6b8c77f041474ea3dfdac41550ccc0b96.gifv",
+              badgeText: '59:08',
             ),
-            SizedBox(height: 20),
+
+            SizedBox(height: 10),
             Row(
               children: [
-                SizedBox(width: 20),
+                SizedBox(height: 10),
                 CustomProfile(
                   img:
                       "https://static1.dmcdn.net/images/dailymotion-logo-ogtag-new.png.va3e30462476a82772",
                 ),
-                SizedBox(width: 20),
+                SizedBox(width: 10),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      "Vincenzo | Ep 7 |",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 17,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                    Text(
-                      "Dailymotion . 80M views . 1 years ago",
-                      style: TextStyle(color: Colors.grey),
+                    CustomText(
+                      title: "Vincenzo | Ep 7 |",
+                      subtitle: "Dailymotion . 80M views . 1 years ago",
                     ),
                   ],
                 ),
               ],
             ),
             SizedBox(height: 15),
-            //
             CustomContainer(
+              color: const Color.fromARGB(95, 186, 185, 185),
               img:
                   "https://img-cdn.thepublive.com/filters:format(webp)/elle-india/media/post_attachments/buzzfeed-static/static/2021-02/2/5/asset/43d236a0b24a/anigif_sub-buzz-8752-1612245535-20.gif",
+              badgeText: '1:08:09',
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 10),
             Row(
               children: [
-                SizedBox(width: 20),
+                SizedBox(height: 10),
                 CustomProfile(
                   img:
                       "https://static1.dmcdn.net/images/dailymotion-logo-ogtag-new.png.va3e30462476a82772",
                 ),
-                SizedBox(width: 20),
+                SizedBox(width: 10),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      "Legend of the blue sea | Ep 4 |",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 17,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                    Text(
-                      "Dailymotion . 80M views . 1 years ago",
-                      style: TextStyle(color: Colors.grey),
+                    CustomText(
+                      title: "Legend of the blue sea | Ep 4 |",
+                      subtitle: "Dailymotion . 80M views . 1 years ago",
                     ),
                   ],
                 ),

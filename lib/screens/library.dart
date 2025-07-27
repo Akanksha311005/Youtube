@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:youtube/color/appcolor.dart';
+import 'package:youtube/custom_widget/custom_icon.dart';
 
 class Library extends StatelessWidget {
   const Library({super.key});
@@ -10,29 +11,13 @@ class Library extends StatelessWidget {
       backgroundColor: Appcolor.secondarycolor,
       appBar: AppBar(
         actions: [
-          Icon(
-            Icons.cast,
-            size: 30,
-            color: const Color.fromARGB(255, 252, 251, 251),
-          ),
+          CustomIcon(icon: Icons.cast),
           SizedBox(width: 10),
-          Icon(
-            Icons.notifications,
-            size: 30,
-            color: const Color.fromARGB(255, 251, 250, 250),
-          ),
+          CustomIcon(icon: Icons.notifications),
           SizedBox(width: 10),
-          Icon(
-            Icons.search,
-            size: 30,
-            color: const Color.fromARGB(255, 253, 252, 252),
-          ),
+          CustomIcon(icon: Icons.search),
           SizedBox(width: 10),
-          Icon(
-            Icons.settings,
-            size: 30,
-            color: const Color.fromARGB(255, 252, 251, 251),
-          ),
+          CustomIcon(icon: Icons.settings),
           SizedBox(width: 10),
         ],
         backgroundColor: Appcolor.secondarycolor,
@@ -316,6 +301,7 @@ class Library extends StatelessWidget {
                       ),
                       Row(
                         children: [
+                          
                           Text(
                             "F4 Thailand      ",
                             style: TextStyle(
@@ -325,7 +311,7 @@ class Library extends StatelessWidget {
                             ),
                           ),
                           SizedBox(width: 25),
-                          Icon(Icons.more_vert, color: Colors.white, size: 18),
+                          CustomIcon(icon: Icons.more_vert),
                         ],
                       ),
                       Text(
@@ -548,7 +534,7 @@ class Library extends StatelessWidget {
                             ),
                           ),
                           SizedBox(width: 50),
-                          Icon(Icons.more_vert, color: Colors.white, size: 18),
+                          CustomIcon(icon: Icons.more_vert),
                         ],
                       ),
                       Text(
@@ -597,11 +583,7 @@ class Library extends StatelessWidget {
                                   ),
                                 ),
                                 SizedBox(width: 110),
-                                Icon(
-                                  Icons.more_vert,
-                                  color: Colors.white,
-                                  size: 18,
-                                ),
+                                CustomIcon(icon: Icons.more_vert),
                               ],
                             ),
                           ],
@@ -616,7 +598,7 @@ class Library extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Icon(Icons.play_arrow, color: Colors.white, size: 24),
+                CustomIcon(icon: Icons.play_arrow),
                 SizedBox(width: 18),
                 Text(
                   "Your Videos",
@@ -632,7 +614,7 @@ class Library extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Icon(Icons.download, color: Colors.white, size: 24),
+                CustomIcon(icon: Icons.download),
                 SizedBox(width: 18),
                 Text(
                   "Downloads",
@@ -648,7 +630,7 @@ class Library extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Icon(Icons.shopping_bag, color: Colors.white, size: 24),
+                CustomIcon(icon: Icons.shopping_bag),
                 SizedBox(width: 18),
                 Text(
                   "Badges",
@@ -666,7 +648,7 @@ class Library extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Icon(Icons.movie, color: Colors.white, size: 24),
+                CustomIcon(icon: Icons.movie),
                 SizedBox(width: 18),
                 Text(
                   "Your Movies",
@@ -682,7 +664,7 @@ class Library extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Icon(Icons.workspace_premium, color: Colors.white, size: 24),
+                CustomIcon(icon: Icons.workspace_premium),
                 SizedBox(width: 18),
                 Text(
                   "Youtube Premium",
@@ -701,7 +683,7 @@ class Library extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Icon(Icons.timeline, color: Colors.white, size: 24),
+                CustomIcon(icon: Icons.timeline),
                 SizedBox(width: 18),
                 Text(
                   "Time Watched",
@@ -717,7 +699,7 @@ class Library extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Icon(Icons.help, color: Colors.white, size: 24),
+                CustomIcon(icon: Icons.help),
                 SizedBox(width: 18),
                 Text(
                   "Help and feedback",

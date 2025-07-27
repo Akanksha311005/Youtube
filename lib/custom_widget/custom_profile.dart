@@ -6,7 +6,7 @@ class CustomProfile extends StatelessWidget {
 
   const CustomProfile({
     super.key,
-    this.size = 60,
+    this.size = 50,
     required this.img,
   });
 

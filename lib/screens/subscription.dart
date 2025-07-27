@@ -3,7 +3,9 @@ import 'package:get/get.dart';
 
 import 'package:youtube/controller/notify_con.dart';
 import 'package:youtube/custom_widget/custom_container.dart';
+import 'package:youtube/custom_widget/custom_icon.dart';
 import 'package:youtube/custom_widget/custom_profile.dart';
+import 'package:youtube/custom_widget/customtext.dart';
 import 'package:youtube/custom_widget/shorts_container.dart';
 import 'package:youtube/routes/app_routes.dart';
 
@@ -43,23 +45,11 @@ class Subscription extends StatelessWidget {
           ),
           backgroundColor: const Color.fromARGB(255, 6, 6, 6),
           actions: [
-            Icon(
-              Icons.cast,
-              size: 25,
-              color: const Color.fromARGB(255, 244, 243, 243),
-            ),
+            CustomIcon(icon: Icons.cast),
             SizedBox(width: 10),
-            Icon(
-              Icons.notifications,
-              size: 25,
-              color: const Color.fromARGB(255, 249, 246, 246),
-            ),
+            CustomIcon(icon: Icons.notifications),
             SizedBox(width: 10),
-            Icon(
-              Icons.search,
-              size: 25,
-              color: const Color.fromARGB(255, 254, 253, 253),
-            ),
+            CustomIcon(icon: Icons.search),
             SizedBox(width: 10),
           ],
         ),
@@ -158,7 +148,10 @@ class Subscription extends StatelessWidget {
                     SizedBox(width: 10),
                     Column(
                       children: [
-                        CustomProfile(img: "https://pbs.twimg.com/profile_images/1740338476736815104/vJGKgOJe_400x400.jpg"),
+                        CustomProfile(
+                          img:
+                              "https://pbs.twimg.com/profile_images/1740338476736815104/vJGKgOJe_400x400.jpg",
+                        ),
                         Column(
                           children: [
                             Text(
@@ -172,7 +165,10 @@ class Subscription extends StatelessWidget {
                     SizedBox(width: 10),
                     Column(
                       children: [
-                       CustomProfile(img: "https://qph.cf2.quoracdn.net/main-qimg-4821aeef9a8638fe278299289e3ffba2-lq"),
+                        CustomProfile(
+                          img:
+                              "https://qph.cf2.quoracdn.net/main-qimg-4821aeef9a8638fe278299289e3ffba2-lq",
+                        ),
                         Column(
                           children: [
                             Text("BTS", style: TextStyle(color: Colors.white)),
@@ -297,38 +293,10 @@ class Subscription extends StatelessWidget {
                       Get.toNamed(AppRoutes.play);
                     },
                     child: CustomContainer(
+                      color: Colors.red,
                       img:
                           "https://www.billboard.com/wp-content/uploads/2023/11/15-jung-kook-tsx-stage-nyc-2023-billboard-1548.jpg?w=800",
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.topRight,
-                    child: Padding(
-                      padding: EdgeInsets.only(left: 100, top: 215, right: 4),
-                      child: Container(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 8,
-                          vertical: 4,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Colors.red,
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Icon(Icons.podcasts, color: Colors.white, size: 16),
-                            SizedBox(width: 4),
-                            Text(
-                              'LIVE',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
+                      badgeText: "LIVE",
                     ),
                   ),
                 ],
@@ -346,21 +314,9 @@ class Subscription extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          "Jung Kook Live at TSX",
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: const Color.fromARGB(255, 246, 243, 243),
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                        Text(
-                          "BANGTANTV . 184k views . 1 day ago",
-                          style: TextStyle(
-                            fontSize: 15,
-                            color: Colors.grey,
-                            fontWeight: FontWeight.w500,
-                          ),
+                        CustomText(
+                          title: "Jung Kook Live at TSX",
+                          subtitle: "BANGTANTV . 184k views . 1 day ago",
                         ),
                       ],
                     ),
@@ -371,36 +327,10 @@ class Subscription extends StatelessWidget {
               Stack(
                 children: [
                   CustomContainer(
+                    color: const Color.fromARGB(95, 186, 185, 185),
                     img:
                         "https://i.pinimg.com/originals/d7/75/2a/d7752aef29c29581be8275676060619d.gif",
-                  ),
-                  Align(
-                    alignment: Alignment.topRight,
-                    child: Padding(
-                      padding: EdgeInsets.only(left: 100, top: 215, right: 4),
-                      child: Container(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 8,
-                          vertical: 4,
-                        ),
-                        decoration: BoxDecoration(
-                          color: const Color.fromARGB(105, 247, 246, 246),
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Text(
-                              'Upcoming',
-                              style: TextStyle(
-                                color: const Color.fromARGB(255, 239, 238, 238),
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
+                    badgeText: 'Upcoming',
                   ),
                 ],
               ),
@@ -417,22 +347,11 @@ class Subscription extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          "BTS new album",
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: const Color.fromARGB(255, 246, 243, 243),
-                            fontWeight: FontWeight.w500,
-                          ),
+                        CustomText(
+                          title: "BTS new album",
+                          subtitle: "BANGTANTV",
                         ),
-                        Text(
-                          "BANGTANTV",
-                          style: TextStyle(
-                            fontSize: 15,
-                            color: Colors.grey,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
+
                         Column(
                           children: [
                             Container(
@@ -547,10 +466,7 @@ class Subscription extends StatelessWidget {
 
               Column(
                 children: [
-                  CustomContainer(
-                    img:
-                        "https://66.media.tumblr.com/0a8661bdbed365a1a1ecce020492cbba/tumblr_oqgxybjs6f1vc6wuyo2_r1_540.gifv",
-                  ),
+                  CustomContainer(color: const Color.fromARGB(95, 186, 185, 185), img: "https://66.media.tumblr.com/0a8661bdbed365a1a1ecce020492cbba/tumblr_oqgxybjs6f1vc6wuyo2_r1_540.gifv", badgeText: '56:30'),
                   SizedBox(height: 10),
 
                   SingleChildScrollView(
@@ -564,21 +480,9 @@ class Subscription extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              "Crash landing on you | ep 2 |",
-                              style: TextStyle(
-                                fontSize: 20,
-                                color: const Color.fromARGB(255, 246, 243, 243),
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                            Text(
-                              "Viki . 678k views . 1 year ago",
-                              style: TextStyle(
-                                fontSize: 15,
-                                color: Colors.grey,
-                                fontWeight: FontWeight.w500,
-                              ),
+                            CustomText(
+                              title: "Crash landing on you | ep 2 |",
+                              subtitle: "Viki . 678k views . 1 year ago",
                             ),
                           ],
                         ),
